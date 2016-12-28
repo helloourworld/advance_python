@@ -21,7 +21,7 @@ print type(s)
 # In[39]:
 
 print s[2]
-s[2] = '0'
+# s[2] = '0'
 
 
 # In[40]:

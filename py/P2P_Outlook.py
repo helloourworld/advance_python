@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 ## P2P行业的风控模型分析
@@ -10,14 +9,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.figure import Figure
-get_ipython().magic(u'pylab inline')
 
+get_ipython().magic(u'pylab inline')
 
 # ## 首先先看下不同金融产品的大致利率水平
 
 # In[9]:
 
-intrest_by_channal = pd.Series([22.40,17.50,6,4.34,2.75],name= ['高利贷','P2P','银行理财','余额宝','银行定存'])
+intrest_by_channal = pd.Series([22.40, 17.50, 6, 4.34, 2.75], name=['高利贷', 'P2P', '银行理财', '余额宝', '银行定存'])
 
 
 # In[10]:
@@ -25,17 +24,17 @@ intrest_by_channal = pd.Series([22.40,17.50,6,4.34,2.75],name= ['高利贷','P2P
 def autolabel(rects):
     for rect in rects:
         height = rect.get_height()
-        plt.text(rect.get_x()+rect.get_width()/2., 1.03*height, '%s' % float(height))
+        plt.text(rect.get_x() + rect.get_width() / 2., 1.03 * height, '%s' % float(height))
 
 
 # In[14]:
 
 N = 5
 ind = np.arange(N)
-width = 0.5 
-plt.xticks(ind,['gaolidai','P2P','chrem','yuebao','dingcun'])
-rect = plt.bar(ind, intrest_by_channal, width, color='r',align="center")
-plt.legend((rect,),("legend",))
+width = 0.5
+plt.xticks(ind, ['gaolidai', 'P2P', 'chrem', 'yuebao', 'dingcun'])
+rect = plt.bar(ind, intrest_by_channal, width, color='r', align="center")
+plt.legend((rect,), ("legend",))
 autolabel(rect)
 plt.title('Different Rate for Special Finace Product')
 plt.grid()
@@ -184,6 +183,3 @@ plt.show()
 # 以上只是风控中信用风险的示例。实际应用中还需要关注市场风险、操作风险等。
 
 # In[5]:
-
-
-

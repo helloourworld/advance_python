@@ -51,7 +51,7 @@ c.next()
 # In[ ]:
 
 def h():
-    print 'wen',
+    print 'wenaaaaaaa',
     m = yield 5
     print m
     d = yield 12
@@ -75,7 +75,9 @@ c.send('Fighting!')
 
 
 # 5. send(msg) 与 next()的返回值
-# send(msg) 和 next()是有返回值的，它们的返回值很特殊，返回的是下一个yield表达式的参数。比如yield 5，则返回 5 。到这里，是不是明白了一些什么东西？本文第一个例子中，通过for i in alist 遍历 Generator，其实是每次都调用了alist.Next()，而每次alist.Next()的返回值正是yield的参数，即我们开始认为被压进去的东东。我们再延续上面的例子：
+# send(msg) 和 next()是有返回值的，它们的返回值很特殊，返回的是下一个yield表达式的参数。比如yield 5，则返回 5 。到这里，
+# 是不是明白了一些什么东西？本文第一个例子中，通过for i in alist 遍历 Generator，其实是每次都调用了alist.Next()，
+# 而每次alist.Next()的返回值正是yield的参数，即我们开始认为被压进去的东东。我们再延续上面的例子：
 
 # In[ ]:
 
@@ -93,14 +95,15 @@ print 'We will never forget the date', m, '.', d
 
 
 # 6. throw() 与 close()中断 Generator
-# 中断Generator是一个非常灵活的技巧，可以通过throw抛出一个GeneratorExit异常来终止Generator。Close()方法作用是一样的，其实内部它是调用了throw(GeneratorExit)的。我们看：
+# 中断Generator是一个非常灵活的技巧，可以通过throw抛出一个GeneratorExit异常来终止Generator。
+# Close()方法作用是一样的，其实内部它是调用了throw(GeneratorExit)的。我们看：
 
 # In[ ]:
 
-def close(self):
+def closeGen(self):
     try:
-        self.throw(GeneratorEixt)
-    except(GeneratorEixt, StopIteration):
+        self.throw(GeneratorExit)
+    except(GeneratorExit, StopIteration):
         pass
     else:
         raise RuntimeError("generator ignored Generator Exit")
@@ -108,7 +111,7 @@ def close(self):
 
 # In[ ]:
 
-close(h)
+closeGen(h)
 
 
 # In[ ]:
