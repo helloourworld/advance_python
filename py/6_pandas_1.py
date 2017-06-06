@@ -15,6 +15,8 @@ import json
 # In[ ]:
 
 # get test data
+from IPython import get_ipython
+
 r = requests.get("http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data")
 
 
